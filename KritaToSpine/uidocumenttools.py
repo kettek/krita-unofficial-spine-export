@@ -136,7 +136,7 @@ class UIDocumentTools(object):
 
     def _selectDir(self):
         doc = self._selectedDocuments()
-        if doc[0]:
+        if doc and doc[0]:
             initialDir = os.path.dirname(doc[0].fileName())
         else:
             initialDir = os.path.expanduser("~")
