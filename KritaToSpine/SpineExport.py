@@ -28,7 +28,6 @@ class SpineExport(object):
     def exportDocument(self, document, directory):
         if document is not None:
             self.json = {
-                "skeleton": {"images": "./"},
                 "bones": [{"name": "root"}],
                 "slots": [],
                 "skins": {"default": {}},
