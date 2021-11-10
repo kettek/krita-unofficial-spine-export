@@ -2,7 +2,7 @@
 import os
 import re
 
-from krita import (Krita, Extension)
+from krita import (Krita, Extension, InfoObject)
 
 import os
 import json
@@ -28,7 +28,7 @@ class SpineExport(object):
     def exportDocument(self, document, directory):
         if document is not None:
             self.json = {
-                "skeleton": {"images": directory},
+                "skeleton": {"images": "./"},
                 "bones": [{"name": "root"}],
                 "slots": [],
                 "skins": {"default": {}},
@@ -110,7 +110,7 @@ class SpineExport(object):
 
             name = self.mergePattern.sub('', child.name()).strip()
             layer_file_name = '{0}/{1}.{2}'.format(directory, name, self.fileFormat)
-            child.save(layer_file_name, 96, 96)
+            child.save(layer_file_name, 96, 96, InfoObject())
 
             newSlot = slot
 
